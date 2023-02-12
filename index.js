@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
     cursorTemplate = document.getElementById('cursorTemplate')
     target = document.getElementById('target')
 
+    start();
+});
+
+document.addEventListener("click", (mouseEvent) => {
+   clickMouse(mouseEvent.clientX, mouseEvent.clientY)
 });
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
-        case 'Enter':
-            start();
-            break;
         case 'd':
             selectUpperLeft();
             break;
@@ -30,10 +32,10 @@ document.addEventListener("keydown", (event) => {
             selectLowerRight()
             break;
         case ' ':
-            click()
+            clickSpace()
             break;
         default:
-            console.log('def')
+            console.log(event.key)
     }
 });
 
@@ -55,6 +57,19 @@ function start() {
     target.style.left = Math.random()*targetMaxX + 'px'
     target.style.top = Math.random()*targetMaxY + 'px'
 
+}
+
+const lapTimes = [];
+function successHit() {
+    const now = new Date();
+    const lapTime = now-startTime
+    lapTimes.push(lapTime)
+
+    const average = lapTimes.reduce((previousValue, currentValue) => previousValue+currentValue)/lapTimes.length
+
+    document.getElementById('timer').textContent = Math.floor(average) + 'ms'
+
+    start()
 }
 
 function selectSection(section) {
@@ -85,17 +100,25 @@ function selectLowerRight() {
     selectSection(currentParentSection.children[3]);
 }
 
-function click() {
+function clickSpace() {
     const cursorLocation = currentParentSection.children[3].getBoundingClientRect()
+    checkHit(cursorLocation.x, cursorLocation.y)
+}
+
+function clickMouse(x,y) {
+   checkHit(x,y)
+}
+
+
+function checkHit(x,y) {
     const targetLocation = target.getBoundingClientRect()
 
-    if (cursorLocation.x >= targetLocation.x
-        && cursorLocation.x <= targetLocation.right
-        && cursorLocation.y >= targetLocation.y
-        && cursorLocation.y <= targetLocation.bottom
+    if (x >= targetLocation.x
+        && x <= targetLocation.right
+        && y >= targetLocation.y
+        && y <= targetLocation.bottom
     ) {
-        console.log('Congrats')
+        successHit()
     }
-
 }
 

@@ -17,6 +17,15 @@ DIV.section {
     float: left;
 }
 
+P#timer {
+    font-size: xx-large;
+    color: red;
+}
+
+.floatLeft {
+    float: left;
+}
+
 IMG.cursor {
     width: 10px;
 }
