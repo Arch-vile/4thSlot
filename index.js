@@ -3,9 +3,15 @@ console.log("hello")
 
 let currentParentSection;
 let sectionsTemplate;
+let cursorTemplate;
 document.addEventListener("DOMContentLoaded", function () {
     currentParentSection = document.getElementById('gameArea')
     sectionsTemplate =  document.getElementById('sectionTemplate')
+    cursorTemplate = document.getElementById('cursorTemplate')
+
+
+    currentParentSection.innerHTML = sectionsTemplate.innerHTML
+    currentParentSection.getElementsByClassName('bottomRight')[0].innerHTML = cursorTemplate.innerHTML
 });
 
 document.addEventListener("keydown", (event) => {
@@ -31,9 +37,11 @@ function selectSection(section) {
     const currentSections = currentParentSection.getElementsByClassName('section')
     for (let i = 0; i < currentSections.length; i++) {
         currentSections[i].classList.remove('red', 'green', 'blue', 'yellow')
+        currentSections[i].innerHTML = '';
     }
 
     section.innerHTML = sectionsTemplate.innerHTML;
+    section.children[3].innerHTML = cursorTemplate.innerHTML
     currentParentSection = section;
 }
 

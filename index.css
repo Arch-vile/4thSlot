@@ -3,12 +3,29 @@
     height: 90vh;
 }
 
+#target {
+    width: 2.5vw;
+    height: 1.5vh;
+    background: transparent;
+    border: 2px black solid;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+}
+
 DIV.section {
     width: 50%;
     height: 50%;
     float: left;
 }
 
+IMG.cursor {
+    width: 1vw;
+}
+
+.hidden {
+    visibility: hidden;
+}
 
 .red {
     background: #ff9686;
