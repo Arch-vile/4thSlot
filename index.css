@@ -1,0 +1,33 @@
+#app {
+    width: 90vw;
+    height: 90vh;
+}
+
+DIV.section {
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+
+
+.red {
+    background: #ff9686;
+}
+
+.green {
+    background: darkcyan;
+}
+
+.blue {
+    background: cornflowerblue;
+}
+
+.yellow {
+    background: darkkhaki;
+}
+
+#gameArea {
+    width: 90%;
+    height: 100%;
+    background: antiquewhite;
+}
