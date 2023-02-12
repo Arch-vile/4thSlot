@@ -19,16 +19,16 @@ document.addEventListener("click", (mouseEvent) => {
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
-        case 'd':
+        case 'e':
             selectUpperLeft();
             break;
-        case 'f':
+        case 'i':
             selectUpperRight()
             break;
-        case 'j':
+        case 'f':
             selectLowerLeft()
             break;
-        case 'k':
+        case 'j':
             selectLowerRight()
             break;
         case ' ':
