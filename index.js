@@ -1,37 +1,61 @@
-console.log("hello")
-
-
+let gameArea;
 let currentParentSection;
 let sectionsTemplate;
 let cursorTemplate;
+let target;
 document.addEventListener("DOMContentLoaded", function () {
-    currentParentSection = document.getElementById('gameArea')
-    sectionsTemplate =  document.getElementById('sectionTemplate')
+    gameArea = document.getElementById('gameArea')
+    currentParentSection = gameArea
+    sectionsTemplate = document.getElementById('sectionTemplate')
     cursorTemplate = document.getElementById('cursorTemplate')
+    target = document.getElementById('target')
 
-
-    currentParentSection.innerHTML = sectionsTemplate.innerHTML
-    currentParentSection.getElementsByClassName('bottomRight')[0].innerHTML = cursorTemplate.innerHTML
 });
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
-        case 'j':
+        case 'Enter':
+            start();
+            break;
+        case 'd':
             selectUpperLeft();
             break;
-        case 'k':
+        case 'f':
             selectUpperRight()
             break;
-        case 'l':
+        case 'j':
             selectLowerLeft()
             break;
-        case ';':
+        case 'k':
             selectLowerRight()
+            break;
+        case ' ':
+            click()
             break;
         default:
             console.log('def')
     }
 });
+
+let startTime;
+
+function start() {
+    startTime = new Date();
+
+    currentParentSection = gameArea
+    currentParentSection.innerHTML = sectionsTemplate.innerHTML
+    currentParentSection.getElementsByClassName('bottomRight')[0].innerHTML = cursorTemplate.innerHTML
+
+    const targetSize = target.getBoundingClientRect()
+    const gameAreaSize = gameArea.getBoundingClientRect()
+    const targetMaxX = gameAreaSize.right-targetSize.width
+    const targetMaxY = gameAreaSize.bottom-targetSize.height
+
+    target.classList.remove('hidden')
+    target.style.left = Math.random()*targetMaxX + 'px'
+    target.style.top = Math.random()*targetMaxY + 'px'
+
+}
 
 function selectSection(section) {
     const currentSections = currentParentSection.getElementsByClassName('section')
@@ -59,5 +83,19 @@ function selectLowerLeft() {
 
 function selectLowerRight() {
     selectSection(currentParentSection.children[3]);
+}
+
+function click() {
+    const cursorLocation = currentParentSection.children[3].getBoundingClientRect()
+    const targetLocation = target.getBoundingClientRect()
+
+    if (cursorLocation.x >= targetLocation.x
+        && cursorLocation.x <= targetLocation.right
+        && cursorLocation.y >= targetLocation.y
+        && cursorLocation.y <= targetLocation.bottom
+    ) {
+        console.log('Congrats')
+    }
+
 }
 

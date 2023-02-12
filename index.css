@@ -4,8 +4,6 @@
 }
 
 #target {
-    width: 2.5vw;
-    height: 1.5vh;
     background: transparent;
     border: 2px black solid;
     position: absolute;
@@ -20,7 +18,7 @@ DIV.section {
 }
 
 IMG.cursor {
-    width: 1vw;
+    width: 10px;
 }
 
 .hidden {
