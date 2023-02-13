@@ -100,7 +100,7 @@ function restart() {
 function selectSection(section) {
     const currentSections = currentParentSection.getElementsByClassName('section')
     for (let i = 0; i < currentSections.length; i++) {
-        currentSections[i].classList.remove('red', 'green', 'blue', 'yellow')
+        currentSections[i].classList.remove('bordered')
         currentSections[i].innerHTML = '';
     }
 
