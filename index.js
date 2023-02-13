@@ -20,6 +20,9 @@ document.addEventListener("click", (mouseEvent) => {
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
+        case 'Enter':
+            restart();
+            break;
         case 'Escape':
             unselect();
             break;
@@ -59,19 +62,25 @@ function start() {
 
     target.classList.remove('hidden')
     target.style.left = Math.random()*targetMaxX + 'px'
+    // target.style.left = '1450px'
     target.style.top = Math.random()*targetMaxY + 'px'
+    // target.style.top = '291px'
 
 }
 
+let successClicks=0;
 const lapTimes = [];
 function successHit() {
     const now = new Date();
     const lapTime = now-startTime
     lapTimes.push(lapTime)
 
+    successClicks++;
+
     const average = lapTimes.reduce((previousValue, currentValue) => previousValue+currentValue)/lapTimes.length
 
     document.getElementById('timer').textContent = Math.floor(average) + 'ms'
+    document.getElementById('clickCounter').textContent = `${successClicks}`
 
     start()
 }
@@ -84,6 +93,9 @@ function unselect() {
     }
 }
 
+function restart() {
+    location.reload();
+}
 
 function selectSection(section) {
     const currentSections = currentParentSection.getElementsByClassName('section')

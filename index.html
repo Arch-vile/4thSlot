@@ -11,17 +11,27 @@
     <div id="target" class="hidden">Click me</div>
     <div id="gameArea"></div>
 </div>
-<div class="floatLeft">
-    Your average time:
-    <p id="timer"></p>
+<div id="instructions" class="pad floatLeft">
+    <h3>Movement instructions</h3>
+    <ul>
+        <li><span class="bold">e</span> to select top left section</li>
+        <li><span class="bold">f</span> to select bottom left section</li>
+        <li><span class="bold">i</span> to select top right section</li>
+        <li><span class="bold">j</span> to select bottom right section</li>
+        <li><span class="bold">space</span> to click on the virtual cursor location</li>
+        <li><span class="bold">esc</span> to undo section selection</li>
+        <li><span class="bold">enter</span> to restart</li>
+    </ul>
+    <p>Your average time:</p><p><span id="timer" class="timer">-</span></p>
+    <p>Success clicks:</p><p><span id="clickCounter" class="timer">0</span></p>
 </div>
 
 <!--used as template to create html-->
 <div id="sectionTemplate" class="hidden">
-    <div class="section red"></div>
-    <div class="section green"></div>
-    <div class="section blue"></div>
-    <div class="section yellow bottomRight"></div>
+    <div class="section floatLeft"></div>
+    <div class="section floatLeft"></div>
+    <div class="section floatLeft"></div>
+    <div class="section bottomRight floatLeft"></div>
 </div>
 <div id="cursorTemplate" class="hidden">
     <img class="cursor" src="cursor.png">
