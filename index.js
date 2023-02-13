@@ -17,8 +17,12 @@ document.addEventListener("click", (mouseEvent) => {
    clickMouse(mouseEvent.clientX, mouseEvent.clientY)
 });
 
+
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
+        case 'Escape':
+            unselect();
+            break;
         case 'e':
             selectUpperLeft();
             break;
@@ -71,6 +75,15 @@ function successHit() {
 
     start()
 }
+
+function unselect() {
+    const parent  = currentParentSection.parentElement
+    console.log(parent.id)
+    if(parent.id !== 'app') {
+       selectSection(parent)
+    }
+}
+
 
 function selectSection(section) {
     const currentSections = currentParentSection.getElementsByClassName('section')
