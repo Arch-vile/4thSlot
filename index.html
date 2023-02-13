@@ -11,21 +11,29 @@
     <button type="button" id="target" class="target" class="hidden">Click me</button>
     <div id="gameArea"></div>
 </div>
-<div id="instructions" class="pad floatLeft">
-    <h3>Movement instructions</h3>
-    <ul>
-        <li><span class="bold">e</span> to select top left section</li>
-        <li><span class="bold">f</span> to select bottom left section</li>
-        <li><span class="bold">i</span> to select top right section</li>
-        <li><span class="bold">j</span> to select bottom right section</li>
-        <li><span class="bold">space</span> to click on the virtual cursor location</li>
-        <li><span class="bold">esc</span> to undo section selection</li>
-        <li><span class="bold">enter</span> to restart</li>
-    </ul>
-    <p>Your average time:</p><p><span id="timer" class="timer">-</span></p>
-    <p>Success clicks:</p><p><span id="clickCounter" class="timer">0</span></p>
+<div class="floatLeft">
+    <div class="instructions pad">
+        <h3>Movement instructions</h3>
+        <ul>
+            <li><span class="bold">e</span> to select top left section</li>
+            <li><span class="bold">f</span> to select bottom left section</li>
+            <li><span class="bold">i</span> to select top right section</li>
+            <li><span class="bold">j</span> to select bottom right section</li>
+            <li><span class="bold">space</span> to click on the virtual cursor location</li>
+            <li><span class="bold">esc</span> to undo section selection</li>
+            <li><span class="bold">enter</span> to restart</li>
+        </ul>
+        <p>Your average time:</p>
+        <p><span id="timer" class="timer">-</span></p>
+        <p>Success clicks:</p>
+        <p><span id="clickCounter" class="timer">0</span></p>
+    </div>
+    <div class="pad poc">
+        <h3>Cursor movement POC</h3>
+        <p>This is a proof of concept for alternative cursor movement model for <a
+                href="https://github.com/mjrusso/scoot">Scoot</a>.</p>
+    </div>
 </div>
-
 <!--used as template to create html-->
 <div id="sectionTemplate" class="hidden">
     <div class="section bordered floatLeft"></div>

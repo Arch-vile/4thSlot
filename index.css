@@ -1,10 +1,14 @@
 #app {
-    width: 80vw;
+    width: 75vw;
     height: 90vh;
 }
 
-#instructions {
+.instructions {
     background: antiquewhite;
+}
+
+.poc {
+    background: #eeeeee;
 }
 
 #target {
@@ -32,6 +36,13 @@ DIV.bordered {
 
 .floatLeft {
     float: left;
+}
+
+.floatRight {
+    float: right;
+}
+.floatBottom {
+    float: bottom;
 }
 
 .pad {
