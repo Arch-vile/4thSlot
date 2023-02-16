@@ -19,6 +19,7 @@ document.addEventListener("click", (mouseEvent) => {
 
 
 document.addEventListener("keydown", (event) => {
+    pressCount++;
     switch (event.key) {
         case 'Enter':
             restart();
@@ -66,6 +67,7 @@ function start() {
 
 }
 
+let pressCount = 0;
 let successClicks=0;
 const lapTimes = [];
 function successHit() {
@@ -79,6 +81,7 @@ function successHit() {
 
     document.getElementById('timer').textContent = Math.floor(average) + 'ms'
     document.getElementById('clickCounter').textContent = `${successClicks}`
+    document.getElementById('pressCounter').textContent = `${(pressCount/lapTimes.length).toFixed(2)}`
 
     start()
 }
