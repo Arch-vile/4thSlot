@@ -62,9 +62,7 @@ function start() {
 
     target.classList.remove('hidden')
     target.style.left = Math.random()*targetMaxX + 'px'
-    // target.style.left = '1450px'
     target.style.top = Math.random()*targetMaxY + 'px'
-    // target.style.top = '291px'
 
 }
 
