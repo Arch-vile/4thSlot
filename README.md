@@ -18,7 +18,5 @@ Application is "deployed" as GitHub Pages. Push to main branch will trigger new 
 
 ## Demo
 
-![demo.mov](demo.mov)
-
-
+![demo.gif](demo.gif)
 
