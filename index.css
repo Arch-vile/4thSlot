@@ -3,6 +3,10 @@
     height: 90vh;
 }
 
+#instructions {
+    width: 20vw;
+}
+
 .instructions {
     background: antiquewhite;
 }
